@@ -170,3 +170,7 @@ As per indicated image and words, its asummed to be OSHW,
 The AdafruitNeoPixel library, wich is included by the original repo:
 GNU GPL version 3
 
+# Resources
+
+Original repository (for if it ever goes away and youd use archive)
+ * https://github.com/RGBduino/RGBDuino
