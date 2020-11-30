@@ -26,6 +26,12 @@ reset is to the outside of the board.
 
 # Examples
 
+# Schematic 
+
+After email contact with seller on Aliexpress, Miss C. Chan send me sch.pdf. 
+The apparently Altium designer made schematics in PDF format. 
+Creation date: 20200910
+
 ## Buzzer test
 Included is an empty text file, the title seems to be in Thai and reads:
 ``How do you know?`` (``ทไร๙ฦ๗ฒโสิด๚ย๋.txt``)
