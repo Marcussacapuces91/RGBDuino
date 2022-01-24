@@ -1,17 +1,22 @@
+/**
+ * Copyright (c) 2022, Marc SIBERT
+ * 
+ * @see ../LICENSE
+ */
 
-int LED = 4;
-int Button = 2;
+const auto LED = 4;
+const auto BUTTON = 2;
 
 void setup()
 {
-  pinMode(4, OUTPUT);
-  pinMode(2, INPUT_PULLUP);
+  pinMode(LED, OUTPUT);
+  pinMode(BUTTON, INPUT_PULLUP);
 }
 
 void loop()
 {
-  if (digitalRead(Button) == LOW)
+  if (digitalRead(BUTTON) == LOW)
     digitalWrite(LED, HIGH);
-  else if (digitalRead(Button) == HIGH)
+  else
     digitalWrite(LED, LOW);
 }
