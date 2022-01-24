@@ -1,11 +1,11 @@
 /**
- * Copyright (c) 2022 by Marc SIBERT
+ * Copyright (c) 2022, Marc SIBERT
  * 
- * @see ../LICENCE file
+ * @see ../LICENSE
  */
 
 /**
- * Called once.
+ * Called once, at first.
  */
 void setup() {
   // put your setup code here, to run once:
