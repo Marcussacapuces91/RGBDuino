@@ -1,3 +1,9 @@
+/**
+ * Copyright (c) 2022, Marc SIBERT
+ * 
+ * @see ../LICENSE
+ */
+
 #define NTD0 -1
 #define NTD1 294
 #define NTD2 330
@@ -29,62 +35,64 @@
 #define EIGHTH 0.25
 #define SIXTEENTH 0.625
 
-int tune[]=
-{
-  NTD3,NTD3,NTD4,NTD5,
-  NTD5,NTD4,NTD3,NTD2,
-  NTD1,NTD1,NTD2,NTD3,
-  NTD3,NTD2,NTD2,
-  NTD3,NTD3,NTD4,NTD5,
-  NTD5,NTD4,NTD3,NTD2,
-  NTD1,NTD1,NTD2,NTD3,
-  NTD2,NTD1,NTD1,
-  NTD2,NTD2,NTD3,NTD1,
-  NTD2,NTD3,NTD4,NTD3,NTD1,
-  NTD2,NTD3,NTD4,NTD3,NTD2,
-  NTD1,NTD2,NTDL5,NTD0,
-  NTD3,NTD3,NTD4,NTD5,
-  NTD5,NTD4,NTD3,NTD4,NTD2,
-  NTD1,NTD1,NTD2,NTD3,
-  NTD2,NTD1,NTD1
+static const int tune[] = {
+  NTD3, NTD3, NTD4, NTD5,
+  NTD5, NTD4, NTD3, NTD2,
+  NTD1, NTD1, NTD2, NTD3,
+  NTD3, NTD2, NTD2,
+  NTD3, NTD3, NTD4, NTD5,
+  NTD5, NTD4, NTD3, NTD2,
+  NTD1, NTD1, NTD2, NTD3,
+  NTD2, NTD1, NTD1,
+  NTD2, NTD2, NTD3, NTD1,
+  NTD2, NTD3, NTD4, NTD3, NTD1,
+  NTD2, NTD3, NTD4, NTD3, NTD2,
+  NTD1, NTD2, NTDL5, NTD0,
+  NTD3, NTD3, NTD4, NTD5,
+  NTD5, NTD4, NTD3, NTD4, NTD2,
+  NTD1, NTD1, NTD2, NTD3,
+  NTD2, NTD1, NTD1
 };
 
-float durt[]=
-{
-  1,1,1,1,
-  1,1,1,1,
-  1,1,1,1,
-  1+0.5,0.5,1+1,
-  1,1,1,1,
-  1,1,1,1,
-  1,1,1,1,
-  1+0.5,0.5,1+1,
-  1,1,1,1,
-  1,0.5,0.5,1,1,
-  1,0.5,0.5,1,1,
-  1,1,1,1,
-  1,1,1,1,
-  1,1,1,0.5,0.5,
-  1,1,1,1,
-  1+0.5,0.5,1+1,
+static const byte durt[] = {
+  2,    2,    2,    2,
+  2,    2,    2,    2,
+  2,    2,    2,    2,
+  3,    1,    4,
+  2,    2,    2,    2,
+  2,    2,    2,    2,
+  2,    2,    2,    2,
+  3,    1,    4,
+  2,    2,    2,    2,
+  2,    1,    1,    2,    2,
+  2,    1,    1,    2,    2,
+  2,    2,    2,    2,
+  2,    2,    2,    2,
+  2,    2,    2,    1,    1,
+  2,    2,    2,    2,
+  3,    1,    4,
 };
 
 int length;
-int tonepin=8;
+const auto TONEPIN = 8;
+const auto BUTTON = 2;
 
 void setup()
 {
-  pinMode(tonepin,OUTPUT);
+  pinMode(TONEPIN, OUTPUT);
+  pinMode(BUTTON, INPUT_PULLUP);
   length=sizeof(tune)/sizeof(tune[0]);
 }
 
 void loop()
 {
-  for(int x=0;x<length;x++)
-  {
-    tone(tonepin,tune[x]);
-    delay(200*durt[x]);
-    noTone(tonepin);
+  if (!digitalRead(BUTTON)) {
+    for(auto x = 0; x < length; x++) {
+      tone(TONEPIN, tune[x]);
+      delay(100 * durt[x]);
+      noTone(TONEPIN);
+      delay(10);
+    }
+    delay(2000);
   }
-  delay(2000);
 }
