@@ -1,18 +1,17 @@
-int pinBuzzer = 8;
-const int buttonPin = 2;
-int buttonState = 0;
+const auto pinBuzzer = 8;
+const auto buttonPin = 2;
+const auto frequency = 2000;
 
 void setup() {
-  pinMode(buttonPin,INPUT);
+  pinMode(buttonPin, INPUT_PULLUP);
   pinMode(pinBuzzer, OUTPUT);
 }
 
 void loop() {
-  long frequency = 2000;
-  buttonState = digitalRead(buttonPin);
+  const auto buttonState = digitalRead(buttonPin);
   if(buttonState == LOW) {
     tone(pinBuzzer, frequency);
   } else {
-   noTone(pinBuzzer);
+    noTone(pinBuzzer);
   }
 }
