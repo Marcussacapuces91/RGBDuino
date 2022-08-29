@@ -1,16 +1,22 @@
-void setup()
-{
-  pinMode(6,OUTPUT);
+/**
+ * Copyright (c) 2022, Marc SIBERT
+ * 
+ * @see ../LICENSE
+ */
+
+const auto LED_PIN = 6;
+
+void setup() {
+  pinMode(LED_PIN, OUTPUT);
 }
 
-void loop()
-{
-  analogWrite(6,255); //same with HIGH
+void loop() {
+  analogWrite(LED_PIN, 255);  //same with HIGH
   delay(1000);
-  analogWrite(6,123);
+  analogWrite(LED_PIN, 123);
   delay(1000);
-  analogWrite(6,50);
+  analogWrite(LED_PIN, 50);
   delay(1000);
-  analogWrite(6, LOW);//same with 0
+  analogWrite(LED_PIN, LOW);  //same with 0
   delay(1000);
 }
